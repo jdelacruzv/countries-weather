@@ -17,10 +17,14 @@ const App = () => {
 	const handleSearch = (event) => setSearch(event.target.value);
 
 	return (
-    <div className="app">
-      <SearchInput query={search} handleSearch={handleSearch} />
-      <ListCountry query={search} countries={countries} />
-    </div>
+		<div className="app">
+			<img
+				src="https://upload.wikimedia.org/wikipedia/commons/2/26/Earth-spinning-rotating-animation-40.gif"
+				alt="Earth-spinning-rotating"
+			/>
+			<SearchInput query={search} handleSearch={handleSearch} />
+			<ListCountry query={search} countries={countries} />
+		</div>
 	);
 };
 
