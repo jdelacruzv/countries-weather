@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+	box-sizing: border-box;
+}
+
+.app {
+	background-color: #282c34;
+	color: aliceblue;
+	min-height: 100vh;
+	padding: 0 1rem;
+	text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+}

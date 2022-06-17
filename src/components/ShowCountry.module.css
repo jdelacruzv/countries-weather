@@ -1,0 +1,37 @@
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.row__text {
+	font-weight: 600;
+	color: #ccc;
+}
+
+.row__btn {
+	background-color: #61dafb;
+	color: #282c34;
+	font-size: .8rem;
+	padding: .3rem .5rem;
+	border: none;
+	border-bottom: 2px solid #13c5f7;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: .8rem;
+}
+
+.row__btn:hover {
+	background-color: #13c5f7;
+	border-bottom: 2px solid #61dafb;
+}
+
+.container {
+	widows: 100%;
+	max-width: 450px;
+	text-align: start;
+	margin: 0 auto;
+	color: aliceblue;
+	padding: .5rem;
+
+}
