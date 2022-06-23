@@ -17,7 +17,7 @@ const ListCountry = ({ query, countries }) => {
 			?	<p>Too many macthes, specify another filter</p>
 			: viewCountries;
 
-	return !query ? <p></p> : viewMessage;
+	return !query ? <></> : viewMessage;
 };
 
 export default ListCountry;

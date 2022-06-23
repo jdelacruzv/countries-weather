@@ -1,0 +1,25 @@
+.weather {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.weather__title {
+	text-align: center;
+	margin: 1.8rem 0 .3rem 0;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+}
+
+.info_degrees {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.info__img {
+	margin: 0;
+	width: 60px;
+}

@@ -1,21 +1,24 @@
-.container {
-	margin: 0 auto;
-	padding: 1rem;
-}
-
 .search {
 	width: 100%;
+	margin: 0;
+	padding: 1rem 0;
+	display: flex;
+}
+
+.search__input {
+	width: 100%;
 	max-width: 300px;
-	padding: 10px 11px 11px 11px;
+	margin: 0 auto;
+	padding: .5rem;
 	background-color: #f2f2f2;
 	border: 1px solid #ccc;
 	color: #777;
 	border-radius: 0.25rem;
 	font-size: 1.2rem;
 	font-family: 'Courier New', Courier, monospace;
-}
+} 
 
-.search:focus {
+.search__input:focus {
 	border-color: #999;
 	outline: none;
 }

@@ -30,10 +30,12 @@ const ShowCountry = ({ filteredQuery }) => {
 	const countryData = filteredQuery.length === 1 ? filteredQuery[0] : [cty];
 
 	return (
-		<div className={style.container}>
-			{filter && filteredCountries}
+		<>
+			<div className={style.list}>
+				{filter && filteredCountries}
+			</div>		
 			{info && <CountryInfo filteredQuery={countryData} />}
-		</div>		
+		</>
 	);
 };
 
