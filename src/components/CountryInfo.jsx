@@ -12,7 +12,7 @@ const CountryInfo = ({ filteredQuery }) => {
 					target="_blank"
 				>
 					<img 
-						src="/public/open.svg" 
+						src="/open.svg" 
 						alt={`Map of ${country.name.common}`} 
 					/>
 				</a>
