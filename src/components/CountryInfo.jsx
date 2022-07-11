@@ -6,15 +6,12 @@ const CountryInfo = ({ filteredQuery }) => {
 		<div className={style.country} key={country.name.common}>
 			<h1 className={style.country__title}>
 				{country.name.common}
-				<a 
-					className={style.country__link} 
+				<a
+					className={style.country__link}
 					href={country.maps.googleMaps}
 					target="_blank"
 				>
-					<img 
-						src="/open.svg" 
-						alt={`Map of ${country.name.common}`} 
-					/>
+					<img src="/open.svg" alt={`Map of ${country.name.common}`} />
 				</a>
 			</h1>
 			<img
@@ -28,11 +25,15 @@ const CountryInfo = ({ filteredQuery }) => {
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Area</span>
-				<span className={style.data__right}>{country.area}</span>
+				<span className={style.data__right}>
+					{`${country.area.toLocaleString()}`}km<sup>2</sup>
+				</span>
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Population</span>
-				<span className={style.data__right}>{country.population}</span>
+				<span
+					className={style.data__right}
+				>{`${country.population.toLocaleString()}`}</span>
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Region</span>
