@@ -1,8 +1,8 @@
 import Weather from "./Weather";
 import style from "./CountryInfo.module.css";
 
-const CountryInfo = ({ filteredQuery }) => {
-	return filteredQuery.map((country) => (
+const CountryInfo = ({ countries }) => {
+	return countries.map((country) => (
 		<div className={style.country} key={country.name.common}>
 			<h1 className={style.country__title}>
 				{country.name.common}

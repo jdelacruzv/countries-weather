@@ -3,19 +3,23 @@ import ShowCountry from "./ShowCountry";
 
 const ListCountry = ({ query, countries }) => {
 	// Convierte a minuscula los nombres de los paises
-	const filteredQuery = countries.filter(country =>
+	const filteredCountries = countries.filter((country) =>
 		country.name.common.toLowerCase().startsWith(query.toLowerCase())
 	);
 
 	const viewCountries =
-		filteredQuery.length === 1 
-			? <CountryInfo filteredQuery={filteredQuery} />
-			: <ShowCountry filteredQuery={filteredQuery} />;
+		filteredCountries.length === 1 ? (
+			<CountryInfo countries={filteredCountries} />
+		) : (
+			<ShowCountry countries={filteredCountries} />
+		);
 
 	const viewMessage =
-		filteredQuery.length > 10 
-			?	<p>Too many macthes, specify another filter</p>
-			: viewCountries;
+		filteredCountries.length > 10 ? (
+			<p>Too many macthes, specify another filter</p>
+		) : (
+			viewCountries
+		);
 
 	return !query ? <></> : viewMessage;
 };

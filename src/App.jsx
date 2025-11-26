@@ -5,13 +5,16 @@ import ListCountry from "./components/ListCountry";
 import "./App.css";
 
 const App = () => {
-	const [countries, setContries] = useState([]);
+	const [countries, setCountries] = useState([]);
 	const [search, setSearch] = useState("");
 
 	useEffect(() => {
-		axios.get("https://restcountries.com/v3.1/all").then(({ data }) => {
-			setContries(data);
-		});
+		const dataCountries = "name,flags,maps,capital,area,population,region,subregion,languages";
+		axios
+			.get(`https://restcountries.com/v3.1/all?fields=${dataCountries}`)
+			.then(({ data }) => {
+				setCountries(data);
+			});
 	}, []);
 
 	const handleSearch = (event) => setSearch(event.target.value);
