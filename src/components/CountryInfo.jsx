@@ -1,5 +1,5 @@
-import Weather from "./Weather";
 import style from "./CountryInfo.module.css";
+import Weather from "./Weather";
 
 const CountryInfo = ({ countries }) => {
 	return countries.map((country) => (
@@ -10,6 +10,7 @@ const CountryInfo = ({ countries }) => {
 					className={style.country__link}
 					href={country.maps.googleMaps}
 					target="_blank"
+					rel="noreferrer"
 				>
 					<img src="/open.svg" alt={`Map of ${country.name.common}`} />
 				</a>
@@ -21,19 +22,30 @@ const CountryInfo = ({ countries }) => {
 			/>
 			<div className={style.data}>
 				<span className={style.data__left}>Capital</span>
-				<span className={style.data__right}>{country.capital}</span>
+				<span className={style.data__right}>
+					{country.capital.length ? country.capital.join(", ") : "Not available"}
+				</span>
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Area</span>
 				<span className={style.data__right}>
-					{`${country.area.toLocaleString()}`}km<sup>2</sup>
+					{Number.isFinite(country.area)
+						? country.area.toLocaleString()
+						: "Not available"}
+					{Number.isFinite(country.area) && (
+						<>
+							km<sup>2</sup>
+						</>
+					)}
 				</span>
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Population</span>
-				<span
-					className={style.data__right}
-				>{`${country.population.toLocaleString()}`}</span>
+				<span className={style.data__right}>
+					{Number.isFinite(country.population)
+						? `${country.population.toLocaleString()} (${country.populationYear})`
+						: "Not available"}
+				</span>
 			</div>
 			<div className={style.data}>
 				<span className={style.data__left}>Region</span>
@@ -47,13 +59,13 @@ const CountryInfo = ({ countries }) => {
 				<span className={style.data__left}>Languages</span>
 				<span className={style.data__right}>
 					<ul className={style.data__list}>
-						{Object.values(country.languages).map((lang) => (
-							<li key={lang}>{lang}</li>
+						{Object.values(country.languages ?? {}).map((lang, index) => (
+							<li key={`${lang}-${index}`}>{lang}</li>
 						))}
 					</ul>
 				</span>
 			</div>
-			<Weather capitalName={country.capital} />
+			<Weather capitalName={country.capital[0]} />
 		</div>
 	));
 };

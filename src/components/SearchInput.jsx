@@ -6,6 +6,7 @@ const SearchInput = ({ query, handleSearch }) => {
 			<input
 				className={style.search__input}
 				type="text"
+				aria-label="Search country"
 				value={query}
 				onChange={handleSearch}
 				placeholder="Search country..."

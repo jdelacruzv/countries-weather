@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import SearchInput from "./components/SearchInput";
-import ListCountry from "./components/ListCountry";
+import { useState } from "react";
 import "./App.css";
+import ListCountry from "./components/ListCountry";
+import SearchInput from "./components/SearchInput";
+import countriesData from "./data/countries.generated.json";
 
 const App = () => {
-	const [countries, setCountries] = useState([]);
 	const [search, setSearch] = useState("");
-
-	useEffect(() => {
-		const dataCountries = "name,flags,maps,capital,area,population,region,subregion,languages";
-		axios
-			.get(`https://restcountries.com/v3.1/all?fields=${dataCountries}`)
-			.then(({ data }) => {
-				setCountries(data);
-			});
-	}, []);
 
 	const handleSearch = (event) => setSearch(event.target.value);
 
@@ -28,7 +18,7 @@ const App = () => {
 		<div className="app">
 			<img className="image" src={earth.url} alt={earth.text} />
 			<SearchInput query={search} handleSearch={handleSearch} />
-			<ListCountry query={search} countries={countries} />
+			<ListCountry query={search} countries={countriesData} />
 		</div>
 	);
 };
