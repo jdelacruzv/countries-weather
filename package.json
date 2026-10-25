@@ -2,6 +2,9 @@
 	"name": "countries-weather",
 	"private": true,
 	"version": "0.0.0",
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
 		"predev": "node scripts/generate-countries.mjs",
 		"dev": "vite",
